@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-12">
+    <h2>{{ profileData?.name }}'s Profile</h2>
+  </div>
+</div>
+
+<div class="row">
+  <!-- LEFT SECTION -->
+  <div class="col">
+    <!-- AVATAR -->
+    <div class="row">
+      <div class="col">
+        <img src="{{ profileData?.avatar_url }}" alt="" width="100%" />
+      </div>
+    </div>
+    <!-- BUTTON REPO -->
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          (click)="gs.navigateTo('/repos')"
+        >
+          My Repository
+        </button>
+      </div>
+    </div>
+    <!-- BUTTON BACK -->
+    <div class="row">
+      <div class="col">
+        <button
+          type="button"
+          class="btn btn-primary btn-block"
+          (click)="gs.navigateTo('/')"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SECTION -->
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8">
+    <div class="form-group">
+      <label>Bio</label>
+      <p>{{ profileData?.bio }}</p>
+    </div>
+    <div class="form-group">
+      <label>Blog</label>
+      <p>{{ profileData?.blog }}<span *ngIf="!profileData.blog">-</span></p>
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <p>{{ profileData?.email }}<span *ngIf="!profileData.email">-</span></p>
+    </div>
+    <div class="form-group">
+      <label>Location</label>
+      <p>{{ profileData?.location }}</p>
+    </div>
+    <div class="form-group">
+      <label>Since</label>
+      <p>{{ profileData?.created_at | date: "fullDate" }}</p>
+    </div>
+  </div>
+</div>

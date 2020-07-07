@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-12" *ngFor="let repo of repoList">
+    <p>{{ repo?.name }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col" (click)="changePage('prev')">
+    <
+  </div>
+  <div class="col">
+    <span *ngFor="let i of paginate" (click)="changePage('default', i)"
+      >{{ i }} -
+    </span>
+  </div>
+  <div class="col" (click)="changePage('next')">
+    >
+  </div>
+</div>
