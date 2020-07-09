@@ -2,6 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
+## Overall Directory Structure
+
+At a high level, the structure looks roughly like this:
+
+```
+cakap-frontend/
+  |- src/
+  |  |- app/
+  |  |  |- pages
+  |  |  |  |- <app component per module>
+  |  |- shared/
+  |  |  |- services
+  |  |  |  |- core
+  |  |  |  |  |- <core httpclient method>
+  |  |  |  |- modules
+  |  |  |  |  |- <service per module>
+  |  |  |- guards
+  |  |  |  |- <guards for routing (canActivate, canDeactivate, etc)>
+  |  |  |- common
+  |  |  |  |- <reusable code>
+  |  |  |- models
+  |  |  |  |- <interface>
+  |  |  |- interceptors
+  |  |  |  |- <http interceptor>
+  |- assets/
+  |  |- <static files>
+  |- environments/
+  |  |- <env variable>
+  |- package.json
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
