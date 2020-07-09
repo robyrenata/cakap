@@ -49,17 +49,24 @@ export class HomeComponent implements OnInit {
     this.submitted = true;
     this.gs.log("fg?", this.fg);
     if (this.fg.invalid) {
+      this.submitted = false;
       return;
     } else {
-      this.homeSrv
-        .getUserDetail(this.fg.value.username)
-        .subscribe((res: any) => {
+      this.homeSrv.getUserDetail(this.fg.value.username).subscribe(
+        (res: any) => {
           this.gs.log("res get user", res);
           if (res.status === 200) {
             this.cache.setCurrentUser(res.body);
             this.gs.navigateTo("/profile");
+            this.submitted = false;
+          } else {
+            this.submitted = false;
           }
-        });
+        },
+        (err) => {
+          this.submitted = false;
+        }
+      );
     }
   }
 

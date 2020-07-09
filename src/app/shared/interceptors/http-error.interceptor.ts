@@ -38,11 +38,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         // HANDLE ERROR CONDITION HERE!
         this.gs.log("error?", error, "error");
         if (error) {
-          this.toast.error(
-            error.statusText.charAt(0).toUpperCase() +
-              error.statusText.slice(1),
-            error.error.message
-          );
+          this.toast.error(error.error.message, error.statusText);
+        } else {
+          this.toast.error(error.message, error.name);
         }
         return throwError(error);
       })

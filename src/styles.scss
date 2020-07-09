@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-@import "~ngx-toastr/toastr";
+@import "~ngx-toastr/toastr.css";
+
+// ngx toastr fix
+#toast-container > div {
+  opacity: 1 !important;
+}
+
+.tobe-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.img-round {
+  border-radius: 50%;
+}

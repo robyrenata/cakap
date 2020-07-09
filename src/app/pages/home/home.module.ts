@@ -4,6 +4,7 @@ import { HomeComponent } from "./home.component";
 import { Routes, RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { SpinnerModule } from "src/app/shared/common/component/spinner/spinner.module";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     RxReactiveFormsModule,
+    SpinnerModule,
   ],
 })
 export class HomeModule {}

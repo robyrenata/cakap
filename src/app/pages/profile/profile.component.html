@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <h2>{{ profileData?.name }}'s Profile</h2>
+    <h2 class="font-weight-bold">{{ profileData?.name }}'s Profile</h2>
   </div>
 </div>
 
@@ -10,11 +10,16 @@
     <!-- AVATAR -->
     <div class="row">
       <div class="col">
-        <img src="{{ profileData?.avatar_url }}" alt="" width="100%" />
+        <img
+          src="{{ profileData?.avatar_url }}"
+          alt=""
+          width="100%"
+          class="img-round"
+        />
       </div>
     </div>
     <!-- BUTTON REPO -->
-    <div class="row">
+    <div class="row pt-3 pb-3">
       <div class="col">
         <button
           type="button"
@@ -26,7 +31,7 @@
       </div>
     </div>
     <!-- BUTTON BACK -->
-    <div class="row">
+    <div class="row pb-3">
       <div class="col">
         <button
           type="button"
@@ -42,23 +47,23 @@
   <!-- RIGHT SECTION -->
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8">
     <div class="form-group">
-      <label>Bio</label>
+      <h5 class="fon-weight-bold">Bio</h5>
       <p>{{ profileData?.bio }}</p>
     </div>
     <div class="form-group">
-      <label>Blog</label>
+      <h5 class="fon-weight-bold">Blog</h5>
       <p>{{ profileData?.blog }}<span *ngIf="!profileData.blog">-</span></p>
     </div>
     <div class="form-group">
-      <label>E-mail</label>
+      <h5 class="fon-weight-bold">E-mail</h5>
       <p>{{ profileData?.email }}<span *ngIf="!profileData.email">-</span></p>
     </div>
     <div class="form-group">
-      <label>Location</label>
+      <h5 class="fon-weight-bold">Location</h5>
       <p>{{ profileData?.location }}</p>
     </div>
     <div class="form-group">
-      <label>Since</label>
+      <h5 class="fon-weight-bold">Since</h5>
       <p>{{ profileData?.created_at | date: "fullDate" }}</p>
     </div>
   </div>

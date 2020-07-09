@@ -14,4 +14,8 @@ export class ReposService {
       pagination
     );
   }
+
+  generateDownloadRepo(owner, repo, branch, format = "zipball") {
+    return this.api.getData(`repos/${owner}/${repo}/${format}/${branch}`);
+  }
 }

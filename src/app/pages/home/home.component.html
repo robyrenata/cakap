@@ -1,64 +1,80 @@
-<div class="row">
+<div class="row tobe-mid justify-content-center">
   <div class="col">
-    <form [formGroup]="fg" (submit)="submitUser()">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-          <div class="form-group">
-            <label>Github Username</label>
-            <input
-              type="text"
-              placeholder="Your Github username here.."
-              class="form-control"
-              formControlName="username"
-            />
-            <small
-              class="form-text text-danger"
-              *ngIf="fg.get('username').errors && submitted"
-            >
-              {{ fg.controls.username.errors?.required?.message }}
-            </small>
+    <div
+      class="row justify-content-center"
+      [ngStyle]="{ 'padding-top': !currentSearch ? '40vh' : '' }"
+    >
+      <div class="col">
+        <form [formGroup]="fg" (submit)="submitUser()">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label>Github Username</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Github username"
+                    formControlName="username"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-primary"
+                      type="submit"
+                      [disabled]="submitted || fg.invalid"
+                    >
+                      <span *ngIf="!submitted">Search</span
+                      ><span *ngIf="submitted"
+                        ><app-spinner [color]="'white'"></app-spinner
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+                <small
+                  class="form-text text-danger"
+                  *ngIf="fg.get('username').errors && submitted"
+                >
+                  {{ fg.controls.username.errors?.required?.message }}
+                </small>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <button
-              type="submit"
-              class="btn btn-primary btn-block"
-              [disabled]="submitted && fg.invalid"
-            >
-              Check
+        </form>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3" *ngIf="currentSearch">
+      <div class="col">
+        <div class="row tobe-mid justify-content-center">
+          <div class="col">
+            <label>Last visited profile</label>
+          </div>
+          <div class="col-2 text-right">
+            <button class="btn" type="button" (click)="clearCurrentUser()">
+              <i class="fas fa-times text-dark"></i>
             </button>
           </div>
         </div>
       </div>
-    </form>
-  </div>
-</div>
-
-<div class="row" *ngIf="currentSearch">
-  <div class="col-10">
-    <h2>Last Visited Profile</h2>
-  </div>
-  <div class="col-2">
-    <span (click)="clearCurrentUser()">Clear X</span>
-  </div>
-  <div class="col-12">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="{{ currentSearch?.avatar_url }}"
-        alt="avatar_image"
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ currentSearch?.name }}</h5>
-        <p class="card-text">{{ currentSearch?.bio }}</p>
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="gs.navigateTo('/profile')"
-        >
-          Re-visit
-        </button>
+      <div class="col-12">
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="{{ currentSearch?.avatar_url }}"
+            alt="avatar_image"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ currentSearch?.name }}</h5>
+            <p class="card-text">{{ currentSearch?.bio }}</p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="gs.navigateTo('/profile')"
+            >
+              Re-visit
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
